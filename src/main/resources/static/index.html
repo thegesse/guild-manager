@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adventurer's Guild</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<h1>🏰 Adventurer's Guild Management</h1>
+
+<div class="main-container">
+    <section class="forms-section">
+        <div class="form-container">
+            <h3>Recruit Adventurer</h3>
+            <form onsubmit="addAdventurer(event)">
+                <input type="text" id="advName" placeholder="Name" required>
+                <input type="text" id="advClass" placeholder="Class (e.g. Mage)" required>
+                <input type="number" id="advLevel" placeholder="Level" required>
+                <input type="text" id="advWeapon" placeholder="Weapon" required>
+                <input type="number" id="advHp" placeholder="HP (Max Health)" required>
+                <input type="number" id="advDamage" placeholder="Damage" required>
+                <button type="submit" class="btn-add">Add Adventurer</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h3>Post New Quest</h3>
+            <form onsubmit="addQuest(event)">
+                <input type="text" id="qName" placeholder="Quest Name" required>
+                <input type="text" id="qDesc" placeholder="Description" required>
+                <input type="number" id="qLevel" placeholder="Min Level" required>
+                <button type="submit" class="btn-add">Post Quest</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="battle-section">
+        <h2>⚔️ Combat Arena</h2>
+        <div class="battle-prep">
+            <select id="select-adventurer"><option value="">Select Adventurer</option></select>
+            <span class="vs-text">VS</span>
+            <select id="select-monster"><option value="">Select Monster</option></select>
+            <button onclick="startFight()" class="btn-fight">Start Battle</button>
+        </div>
+
+        <div id="battle-arena" class="arena-container" style="display:none;">
+            <div class="combatants">
+                <div id="player-combatant" class="combatant-box">
+                </div>
+                <div class="battle-ui">
+                    <div id="battle-log" class="log-window"></div>
+                    <button onclick="attackTurn()" id="attack-btn" class="btn-attack">Attack!</button>
+                </div>
+                <div id="enemy-combatant" class="combatant-box">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <div class="display-section">
+        <h2>Active Adventurers</h2>
+        <div id="adventurer-list" class="grid-container"></div>
+
+        <h2>Quest Board</h2>
+        <div id="quest-list" class="grid-container"></div>
+
+        <h2>Roaming Monsters</h2>
+        <div id="monster-list" class="grid-container"></div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
